@@ -1,10 +1,10 @@
 //props
-function Profile(props){
+function Profile({name, age}){
 
   return(
 <div>
-  <h1>name:{props.name}</h1>
-  <p>Age:{props.age}</p>
+  <h1>name:{name}</h1>
+  <p>Age:{age}</p>
 </div>
   );
 }
@@ -14,6 +14,7 @@ function Profile(props){
 function App() {
   return (
       <div>
+        <h1>Profile names</h1>
      
       <Profile 
       name="jane"
