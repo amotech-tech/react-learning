@@ -1,47 +1,33 @@
 //props
 //usestate
 import { useState } from "react";
-function Profile({name, age}){
-  const[personage, setPersonAge]=useState(age);
+function App(){
+  const[title, setTitle]=useState("");
+  const[genre, setGenre]=useState("");
+  const[rating, setRating]=useState("");
+
+  function handleAddMovie(){
+  console.log(title);
+    console.log(genre);
+      console.log(rating);
+}
 
   return(
 <div>
-  <h1>name:{name}</h1>
-  <p>Age:{personage}</p>
-  <button onClick={()=>setPersonAge(personage+1)}>
-    Increase Age</button>
- <button onClick={()=>setPersonAge(personage -1)}>
-    decrease Age</button>
+  <h1> Movie App</h1>
+  <input type="text" placeholder="Movie title" value={title} onChange={(e)=>setTitle(e.target.value)}/><br>
+  </br>
+  <input type="text" placeholder="genre" value={genre} onChange={(e)=>setGenre(e.target.value)}/>
+  <br></br>
+  <input type="number" placeholder="rating" value={rating} onChange={(e)=>setRating(e.target.value)}/><br></br>
+  <button onClick={handleAddMovie}>
+    Add movie
+  </button>
 </div>
   );
 }
 
 
 
-function App() {
-  return (
-      <div>
-        <h1>Profile names</h1>
-     
-      <Profile 
-      name="jane"
-      age={21}
-      />
-       <Profile 
-      name="kim"
-      age={20}
-      />
-      <Profile 
-      name="Amo"
-      age={11}
-      />
-      <Profile 
-      name="JOe"
-      age= {21}
-      />
-    
-    </div>
-  );
-}
 
 export default App;
