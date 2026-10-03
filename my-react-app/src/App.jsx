@@ -25,6 +25,7 @@ function App(){
   <h1> Movie list</h1>
 {movies.map((movie)=>(
   <Movie 
+  key={movie.title}
   title={movie.title}
   genre={movie.genre}
     rating={movie.rating}
