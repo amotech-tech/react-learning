@@ -1,28 +1,35 @@
 //props
 //usestate
 import { useState } from "react";
-function App(){
-  const[title, setTitle]=useState("");
-  const[genre, setGenre]=useState("");
-  const[rating, setRating]=useState("");
-
-  function handleAddMovie(){
-  console.log(title);
-    console.log(genre);
-      console.log(rating);
+function Movie({  title,genre,rating
+}){
+  return(
+    <div>
+      <h2>{title}
+      </h2>
+      <p>Genre:{genre}
+      </p>
+      <p>Rating:{rating}/10</p>
+    </div>
+  );
 }
+function App(){
+  const[movies, setMovies]=useState([
+    {title:"inception",genre:"scifi", rating:8},
+    {title:"hindu",genre:"bahubar", rating:6},
+    {title:"avata",genre:"ava", rating:6}
+  ]);
 
   return(
 <div>
-  <h1> Movie App</h1>
-  <input type="text" placeholder="Movie title" value={title} onChange={(e)=>setTitle(e.target.value)}/><br>
-  </br>
-  <input type="text" placeholder="genre" value={genre} onChange={(e)=>setGenre(e.target.value)}/>
-  <br></br>
-  <input type="number" placeholder="rating" value={rating} onChange={(e)=>setRating(e.target.value)}/><br></br>
-  <button onClick={handleAddMovie}>
-    Add movie
-  </button>
+  <h1> Movie list</h1>
+{movies.map((movie)=>(
+  <Movie 
+  title={movie.title}
+  genre={movie.genre}
+    rating={movie.rating}
+    />
+  ))}
 </div>
   );
 }
