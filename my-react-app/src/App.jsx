@@ -1,11 +1,19 @@
+function Login() {
+  return <h2>Login Page</h2>;
+}
+
+function Dashboard() {
+  return <h2>Dashboard</h2>;
+}
+
 function App() {
   const isLoggedIn = true;
 
-  if (isLoggedIn) {
-    return <h1>Welcome back!</h1>;
-  }
-
-  return <h1>Please log in.</h1>;
+  return (
+    <div>
+      {isLoggedIn ? <Dashboard /> : <Login />}
+    </div>
+  );
 }
 
 export default App;
